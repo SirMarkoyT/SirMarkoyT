@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="fa">
+<!DOCTYPE html><html lang="fa">
 <head>
   <meta charset="UTF-8">
   <title>SIR MARKO YT graphy</title>
@@ -12,175 +11,180 @@
       animation: bgAnimation 15s ease infinite;
       overflow-x: hidden;
       scroll-behavior: smooth;
-    }
+    }@keyframes bgAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-    @keyframes bgAnimation {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+h1 {
+  font-size: 3em;
+  color: white;
+  text-shadow:
+    0 0 20px #ffffff,
+    -10px 0 30px #00ffff,
+    10px 0 30px #ff00ff;
+  text-align: center;
+  margin-top: 60px;
+}
 
-    h1 {
-      font-size: 3em;
-      color: white;
-      text-shadow: 0 0 20px #ffffff,
-                   -10px 0 30px #00ffff,
-                   10px 0 30px #ff00ff;
-      text-align: center;
-      margin-top: 60px;
-    }
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 60px 0;
+}
 
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin: 60px 0;
-    }
+.social-icons a {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 10px 20px #00000050;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  perspective: 1000px;
+}
 
-    .social-icons a {
-      position: relative;
-      width: 80px;
-      height: 80px;
-      border-radius: 20px;
-      background: white;
-      box-shadow: 0 10px 20px #00000050;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      perspective: 1000px;
-    }
+.social-icons a:hover {
+  transform: rotateY(15deg) rotateX(10deg) scale(1.1);
+  box-shadow: 0 20px 40px #00000080;
+}
 
-    .social-icons a:hover {
-      transform: rotateY(15deg) rotateX(10deg) scale(1.1);
-      box-shadow: 0 20px 40px #00000080;
-    }
+.social-icons a::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  width: 110px;
+  height: 110px;
+  background: conic-gradient(from 0deg, #00ff00, #ff0000, #0000ff, #00ff00);
+  border-radius: 50%;
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+  animation: waveSpin 4s linear infinite;
+}
 
-    .social-icons a::before {
-      content: '';
-      position: absolute;
-      top: -15px;
-      left: -15px;
-      width: 110px;
-      height: 110px;
-      background: conic-gradient(from 0deg, #00ff00, #ff0000, #0000ff, #00ff00);
-      border-radius: 50%;
-      filter: blur(20px);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      z-index: -1;
-      animation: waveSpin 4s linear infinite;
-    }
+.social-icons a:hover::before {
+  opacity: 1;
+}
 
-    .social-icons a:hover::before {
-      opacity: 1;
-    }
+@keyframes waveSpin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 
-    @keyframes waveSpin {
-      0%   { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
+.social-icons img {
+  width: 50px;
+  height: 50px;
+}
 
-    .social-icons img {
-      width: 50px;
-      height: 50px;
-    }
+.triangle-scroll {
+  text-align: center;
+  margin-top: 20px;
+  animation: bounceDown 3s linear infinite;
+}
 
-    .triangle-scroll {
-      text-align: center;
-      margin-top: 20px;
-      animation: bounceDown 3s linear infinite;
-    }
+.triangle-scroll span {
+  display: block;
+  font-size: 2rem;
+  color: white;
+  opacity: 0;
+  animation: triangleLoop 6s infinite;
+}
 
-    .triangle-scroll span {
-      display: block;
-      font-size: 2rem;
-      color: white;
-      opacity: 0;
-      animation: triangleLoop 6s infinite;
-    }
+.triangle-scroll span:nth-child(1) { animation-delay: 0s; }
+.triangle-scroll span:nth-child(2) { animation-delay: 1s; }
+.triangle-scroll span:nth-child(3) { animation-delay: 2s; }
 
-    .triangle-scroll span:nth-child(1) { animation-delay: 0s; }
-    .triangle-scroll span:nth-child(2) { animation-delay: 1s; }
-    .triangle-scroll span:nth-child(3) { animation-delay: 2s; }
+@keyframes triangleLoop {
+  0%, 100% { opacity: 0; transform: translateY(-10px); }
+  30% { opacity: 1; transform: translateY(0); }
+  60% { opacity: 0; transform: translateY(10px); }
+}
 
-    @keyframes triangleLoop {
-      0%, 100% { opacity: 0; transform: translateY(-10px); }
-      30% { opacity: 1; transform: translateY(0); }
-      60% { opacity: 0; transform: translateY(10px); }
-    }
+.about-section {
+  min-height: 100vh;
+  background: rgba(0,0,0,0.3);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  text-shadow: 0 0 10px #000;
+  line-height: 2;
+  direction: rtl;
+  text-align: justify;
+}
 
-    .about-section {
-      min-height: 100vh;
-      background: rgba(0,0,0,0.3);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 40px;
-      font-size: 1.2rem;
-      text-shadow: 0 0 10px #000;
-      line-height: 2;
-      direction: rtl;
-      text-align: justify;
-    }
+.contact-section {
+  min-height: 60vh;
+  background: rgba(0,0,0,0.4);
+  color: white;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2rem;
+  direction: rtl;
+  text-align: center;
+}
 
-    .contact-section {
-      background: rgba(0,0,0,0.4);
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-      direction: rtl;
-    }
+.contact-section h2 {
+  margin-bottom: 30px;
+}
 
-    .contact-section h2 {
-      font-size: 2rem;
-      margin-bottom: 30px;
-    }
+.contact-section form {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
-    .contact-section form {
-      max-width: 500px;
-      margin: auto;
-    }
+.contact-section input,
+.contact-section textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+}
 
-    .contact-section input,
-    .contact-section textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 20px;
-      border: none;
-      border-radius: 10px;
-      font-size: 1rem;
-    }
+.contact-section button {
+  padding: 12px 24px;
+  background: #00ff00;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
 
-    .contact-section button {
-      padding: 12px 24px;
-      background: #00ff00;
-      color: black;
-      border: none;
-      border-radius: 10px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
+.contact-section button:hover {
+  background: #00cc00;
+}
 
-    .contact-section button:hover {
-      background: #00cc00;
-    }
-
-    .footer {
-      color: white;
-      font-size: 1rem;
-      text-shadow: 1px 1px 3px #00000070;
-      text-align: center;
-      margin-bottom: 20px;
-    }
+.footer {
+  color: white;
+  font-size: 1rem;
+  text-shadow: 1px 1px 3px #00000070;
+  text-align: center;
+  margin-bottom: 20px;
+}
   </style>
 </head>
 <body>
   <h1>SIR MARKO YT graphy</h1>
-
   <div class="social-icons">
     <a href="https://www.youtube.com/@SirMarkoyT" target="_blank">
       <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
@@ -192,17 +196,15 @@
       <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube Other">
     </a>
   </div>
-
   <div class="triangle-scroll">
     <span>▼</span>
     <span>▼</span>
     <span>▼</span>
   </div>
-
   <div class="about-section" id="about">
     <h2>درباره من</h2>
     <p>
-      سلام من Marko هستم، Sir marko yt، من هنوز Q & A نگرفتم و بخاطر همین اطلاعات خواستی نمیتونم بهتون بدم ولی در این حد بدونید که من محتوا سازی رو از سال ۹۸ شروع کردم...
+      سلام من Marko هستم، Sir marko yt، من هنوز Q & A نگرفتم و بخاطر همین اطلاعات خواستی نمیتونم بهتون بدم ولی در این حد بدونید که من محتوا سازی رو از سال ۹۸ شروع کردم. چنل های زیادی داشتم و چنل هوایی داشتم که حتی پریده و .... خیلی سعی کردم که بتونم بهترین کانتنت رو برای نمایش بزارم از آموزش های کامپیوتر ( نصب ویندوز و کاهش پینگ و خرابی ها و ارور های سیستمی و راه حل ) تا کانتنت گیم مثل زولا - ماینکرافت - فری فایر - و .... همیشه کنار کشیدم، حتی ممکنه دوباره هم کنار بکشم چون سختی زیادی دارم مثل سیستم زغالی، اینترنت ضعیف و سختی‌های زیادی مثل تامبنیل‌سازی و ادیت، ولی امیدوارم موفق شم حداقل توی این چنل.
     </p>
     <br>
     <h3>مشخصات سیستم:</h3>
@@ -221,7 +223,7 @@
       <input type="text" name="name" placeholder="نام شما *" required>
       <input type="email" name="email" placeholder="ایمیل شما *" required>
       <textarea name="message" rows="6" placeholder="پیام شما به من *" required></textarea>
-      <button type="submit">ارسال</button>
+      <button type="submit">ارسال پیام</button>
     </form>
   </div>
 
