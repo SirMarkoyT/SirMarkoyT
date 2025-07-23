@@ -1,140 +1,168 @@
 <!DOCTYPE html><html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SirMarkoYT</title>
+  <title>SIR MARKO YT graphy</title>
   <style>
     body {
       margin: 0;
       font-family: sans-serif;
-      background-color: #0f0f0f;
-      color: white;
-    }
-    header {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #222, #111);
-      position: relative;
-    }
-    h1 {
-      font-size: 3rem;
-      animation: fadeInUp 2s ease forwards;
-      opacity: 0;
-    }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-    }
-    .socials {
-      text-align: center;
-      margin-top: 20px;
-    }
-    .socials a {
-      color: white;
-      margin: 0 10px;
-      font-size: 1.5rem;
-      text-decoration: none;
-    }
-    .arrow-container {
-      position: absolute;
-      bottom: 20px;
-      width: 100%;
-      text-align: center;
-    }
-    .arrow {
-      font-size: 2rem;
-      color: white;
-      animation: bounce 1.5s infinite;
-      display: inline-block;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); opacity: 0.3; }
-      50% { transform: translateY(10px); opacity: 1; }
-    }
-    #about {
-      padding: 60px 20px;
-      background-color: #1a1a1a;
-      text-align: center;
-    }
-    #contact {
-      padding: 60px 20px;
-      background-color: #0f0f0f;
-      color: white;
-    }
-    form {
-      max-width: 600px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      margin-top: 5px;
-    }
-    form button {
-      padding: 12px;
-      background-color: #ff4444;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
+      background: linear-gradient(270deg, #00ff00, #ff0000, #0000ff);
+      background-size: 600% 600%;
+      animation: bgAnimation 15s ease infinite;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }@keyframes bgAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h1 {
+  font-size: 3em;
+  color: white;
+  text-shadow:
+    0 0 20px #ffffff,
+    -10px 0 30px #00ffff,
+    10px 0 30px #ff00ff;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 60px 0;
+}
+
+.social-icons a {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 10px 20px #00000050;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  perspective: 1000px;
+}
+
+.social-icons a:hover {
+  transform: rotateY(15deg) rotateX(10deg) scale(1.1);
+  box-shadow: 0 20px 40px #00000080;
+}
+
+.social-icons a::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  width: 110px;
+  height: 110px;
+  background: conic-gradient(from 0deg, #00ff00, #ff0000, #0000ff, #00ff00);
+  border-radius: 50%;
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+  animation: waveSpin 4s linear infinite;
+}
+
+.social-icons a:hover::before {
+  opacity: 1;
+}
+
+@keyframes waveSpin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.social-icons img {
+  width: 50px;
+  height: 50px;
+}
+
+.triangle-scroll {
+  text-align: center;
+  margin-top: 20px;
+  animation: bounceDown 3s linear infinite;
+}
+
+.triangle-scroll span {
+  display: block;
+  font-size: 2rem;
+  color: white;
+  opacity: 0;
+  animation: triangleLoop 6s infinite;
+}
+
+.triangle-scroll span:nth-child(1) { animation-delay: 0s; }
+.triangle-scroll span:nth-child(2) { animation-delay: 1s; }
+.triangle-scroll span:nth-child(3) { animation-delay: 2s; }
+
+@keyframes triangleLoop {
+  0%, 100% { opacity: 0; transform: translateY(-10px); }
+  30% { opacity: 1; transform: translateY(0); }
+  60% { opacity: 0; transform: translateY(10px); }
+}
+
+.about-section {
+  min-height: 100vh;
+  background: rgba(0,0,0,0.3);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  text-shadow: 0 0 10px #000;
+  line-height: 2;
+  direction: rtl;
+  text-align: justify;
+}
+
+.footer {
+  color: white;
+  font-size: 1rem;
+  text-shadow: 1px 1px 3px #00000070;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
   </style>
 </head>
 <body>
-  <header>
-    <div>
-      <h1>Sir Marko YT گرافی</h1>
-      <div class="socials">
-        <a href="#">یوتیوب</a>
-        <a href="#">اینستاگرام</a>
-      </div>
-      <div class="arrow-container">
-        <div class="arrow">▼</div>
-        <div class="arrow">▼</div>
-        <div class="arrow">▼</div>
-      </div>
-    </div>
-  </header>  <section id="about">
+  <h1>SIR MARKO YT graphy</h1>  <div class="social-icons">
+    <a href="https://www.youtube.com/@SirMarkoyT" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+    </a>
+    <a href="https://www.instagram.com/sirmarkoyt" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+    </a>
+    <a href="https://www.youtube.com/@sirmarkoOthergameyT" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube Other">
+    </a>
+  </div>  <div class="triangle-scroll">
+    <span>▼</span>
+    <span>▼</span>
+    <span>▼</span>
+  </div>  <div class="about-section" id="about">
     <h2>درباره من</h2>
-    <p>سلام من Marko هستم ، Sir marko yt ، من هنوز Q & A نگرفتم و بخاطر همین اطلاعات خواستی نمیتونم بهتون بدم ولی در این حد بدونید که من محتوا سازی رو از سال ۹۸ شروع کردم چنل های زیادی داشتم و چنل هوایی داشتم که حتی پریده و .... خیلی سعی کردم که بتونم بهترین کانتنت رو برای نمایش بزارم از آموزش های کامپیوتر ( نصب ویندوز و کاهش پینگ و خرابی ها و ارور های سیستمی و راه حل ) تا کانتنت گیم مثل زولا - ماینکرافت - فری فایر - و .... همیشه کنار کشید حتی ممکنه دوباره هم کنار بکشم چون سختی زیادی دارم مثل سیستم زغالی اینترنت و سختی های زیادی مثل تامبنیل سازی و ادیت ولی امیدوارم موفق شم حداقل توی این چنل</p>
+    <p>
+      سلام من Marko هستم، Sir marko yt، من هنوز Q & A نگرفتم و بخاطر همین اطلاعات خواستی نمیتونم بهتون بدم ولی در این حد بدونید که من محتوا سازی رو از سال ۹۸ شروع کردم. چنل های زیادی داشتم و چنل هوایی داشتم که حتی پریده و .... خیلی سعی کردم که بتونم بهترین کانتنت رو برای نمایش بزارم از آموزش های کامپیوتر ( نصب ویندوز و کاهش پینگ و خرابی ها و ارور های سیستمی و راه حل ) تا کانتنت گیم مثل زولا - ماینکرافت - فری فایر - و .... همیشه کنار کشیدم، حتی ممکنه دوباره هم کنار بکشم چون سختی زیادی دارم مثل سیستم زغالی، اینترنت ضعیف و سختی‌های زیادی مثل تامبنیل‌سازی و ادیت، ولی امیدوارم موفق شم حداقل توی این چنل.
+    </p>
     <br>
-    <p><strong>مشخصات سیستم :</strong><br>
-    Laptop: Dell latitude E6410<br>
-    Modem : Tp link<br>
-    Internet : Asia tech<br>
-    Mouse : Tesco TM2018 GA<br>
-    Keyboard : xp-product</p>
-  </section>  <section id="contact">
-    <h2 style="text-align: center; font-size: 2rem; margin-bottom: 20px;">📬 ارتباط با من</h2>
-    <form action="https://formspree.io/f/mrblpjgp" method="POST">
-      <label>
-        نام *:
-        <input type="text" name="name" required>
-      </label>
-      <label>
-        ایمیل *:
-        <input type="email" name="email" required>
-      </label>
-      <label>
-        پیام شما به من *:
-        <textarea name="message" required rows="5"></textarea>
-      </label>
-      <button type="submit">✉️ ارسال پیام</button>
-    </form>
-  </section>
+    <h3>مشخصات سیستم:</h3>
+    <ul>
+      <li>Laptop: Dell Latitude E6410</li>
+      <li>Modem: TP-Link</li>
+      <li>Internet: Asia Tech</li>
+      <li>Mouse: Tesco TM2018 GA</li>
+      <li>Keyboard: xp-product</li>
+    </ul>
+  </div>  <div class="footer">©Sir Marko yT - همه حقوق محفوظ است</div>
 </body>
 </html>
