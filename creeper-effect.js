@@ -1,0 +1,1 @@
+document.body.style.cursor = "url('creeper.png') 16 16, auto";
