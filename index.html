@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>SIR MARKO YT graphy</title>
   <style>
     body {
@@ -15,10 +15,9 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
-
-      /* 🚀 اضافه‌شده: نشانگر کریپر */
+      overflow: auto;
       cursor: url('creeper.png') 16 16, auto;
+      color: white;
     }
 
     @keyframes bgAnimation {
@@ -29,7 +28,6 @@
 
     h1 {
       font-size: 3em;
-      color: white;
       text-shadow:
         0 0 20px #ffffff,
         -10px 0 30px #00ffff,
@@ -59,6 +57,9 @@
       transition: transform 0.4s ease, box-shadow 0.4s ease;
       perspective: 1000px;
       overflow: visible;
+      color: black;
+      font-weight: bold;
+      text-decoration: none;
     }
 
     .social-icons a:hover {
@@ -103,18 +104,90 @@
       position: absolute;
       bottom: 20px;
     }
+
+    /* استایل بخش فایل‌ها شبیه آیکون‌ها */
+    .file-links {
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      max-width: 420px;
+      margin: 20px auto 60px;
+      box-shadow: 0 10px 20px #00000050;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      color: black;
+      font-family: sans-serif;
+      perspective: 1000px;
+      overflow: visible;
+    }
+
+    .file-links h2 {
+      margin: 0 0 15px 0;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    .file-links a {
+      position: relative;
+      padding: 12px 15px;
+      border-radius: 20px;
+      background: #f0f0f0;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 10px 20px #00000030;
+      transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.3s ease;
+      display: block;
+    }
+
+    .file-links a:hover {
+      transform: rotateY(15deg) rotateX(10deg) scale(1.05);
+      box-shadow: 0 20px 40px #00000070;
+      background: #d0d0d0;
+      color: #000;
+      text-decoration: underline;
+    }
+
+    .file-links a::before {
+      content: '';
+      position: absolute;
+      top: -12px;
+      left: -12px;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      background: conic-gradient(from 0deg, #00ff00, #ff0000, #0000ff, #00ff00);
+      filter: blur(15px);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+      animation: waveSpin 4s linear infinite;
+    }
+
+    .file-links a:hover::before {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
   <h1>SIR MARKO YT graphy</h1>
 
   <div class="social-icons">
-    <a href="https://www.youtube.com/@SirMarkoyT" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+    <a href="https://www.youtube.com/@SirMarkoyT" target="_blank" rel="noopener noreferrer">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" />
     </a>
-    <a href="https://www.instagram.com/sirmarkoyt" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+    <a href="https://www.instagram.com/sirmarkoyt" target="_blank" rel="noopener noreferrer">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
     </a>
+  </div>
+
+  <div class="file-links">
+    <h2>فایل‌های قابل دانلود</h2>
+    <a href="files/sample1.pdf" download>دانلود فایل 1 (PDF)</a>
+    <a href="files/sample2.zip" download>دانلود فایل 2 (ZIP)</a>
+    <a href="files/sample3.mp4" download>دانلود فایل 3 (ویدیو)</a>
   </div>
 
   <div class="footer">©Sir Marko yT - همه حقوق محفوظ است</div>
