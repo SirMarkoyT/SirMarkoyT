@@ -1,195 +1,94 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8" />
-  <title>SIR MARKO YT graphy</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>سایت من</title>
   <style>
     body {
       margin: 0;
-      height: 100vh;
-      font-family: sans-serif;
-      background: linear-gradient(270deg, #00ff00, #ff0000, #0000ff);
-      background-size: 600% 600%;
-      animation: bgAnimation 15s ease infinite;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      overflow: auto;
-      cursor: url('creeper.png') 16 16, auto;
-      color: white;
-    }
-
-    @keyframes bgAnimation {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      padding: 0;
+      font-family: Tahoma, sans-serif;
+      background-color: #121212;
+      color: #fff;
+      text-align: center;
     }
 
     h1 {
-      font-size: 3em;
-      text-shadow:
-        0 0 20px #ffffff,
-        -10px 0 30px #00ffff,
-        10px 0 30px #ff00ff;
-      margin-bottom: 40px;
-      margin-top: -50px;
-      position: relative;
+      margin-top: 30px;
     }
 
-    .social-icons {
-      display: flex;
-      gap: 40px;
-      margin-bottom: 60px;
+    .icon-container {
+      margin: 40px 0;
     }
 
-    .social-icons a {
-      position: relative;
-      display: inline-block;
+    .icon {
       width: 80px;
       height: 80px;
-      border-radius: 20px;
-      background: white;
-      box-shadow: 0 10px 20px #00000050;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      perspective: 1000px;
-      overflow: visible;
-      color: black;
-      font-weight: bold;
-      text-decoration: none;
+      margin: 10px;
+      transition: transform 0.3s ease;
     }
 
-    .social-icons a:hover {
-      transform: rotateY(15deg) rotateX(10deg) scale(1.1);
-      box-shadow: 0 20px 40px #00000080;
+    .icon:hover {
+      transform: scale(1.1);
     }
 
-    .social-icons a::before {
-      content: '';
-      position: absolute;
-      top: -15px;
-      left: -15px;
-      width: 110px;
-      height: 110px;
-      background: conic-gradient(from 0deg, #00ff00, #ff0000, #0000ff, #00ff00);
-      border-radius: 50%;
-      filter: blur(20px);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      z-index: -1;
-      animation: waveSpin 4s linear infinite;
-    }
-
-    .social-icons a:hover::before {
-      opacity: 1;
-    }
-
-    @keyframes waveSpin {
-      0%   { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .social-icons img {
-      width: 50px;
-      height: 50px;
-    }
-
-    .footer {
-      color: white;
-      font-size: 1rem;
-      text-shadow: 1px 1px 3px #00000070;
-      position: absolute;
-      bottom: 20px;
-    }
-
-    /* استایل بخش فایل‌ها شبیه آیکون‌ها */
-    .file-links {
-      background: white;
-      padding: 20px;
-      border-radius: 20px;
-      max-width: 420px;
-      margin: 20px auto 60px;
-      box-shadow: 0 10px 20px #00000050;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      color: black;
-      font-family: sans-serif;
-      perspective: 1000px;
-      overflow: visible;
-    }
-
-    .file-links h2 {
-      margin: 0 0 15px 0;
-      text-align: center;
-      font-weight: bold;
-      font-size: 1.5rem;
-    }
-
-    .file-links a {
-      position: relative;
-      padding: 12px 15px;
-      border-radius: 20px;
-      background: #f0f0f0;
-      color: #333;
+    .download-button {
+      display: inline-block;
+      margin: 20px auto;
+      padding: 12px 24px;
+      background-color: #1f1f1f;
+      color: #fff;
       text-decoration: none;
       font-weight: bold;
-      box-shadow: 0 10px 20px #00000030;
-      transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.3s ease;
-      display: block;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: 0.3s;
     }
 
-    .file-links a:hover {
-      transform: rotateY(15deg) rotateX(10deg) scale(1.05);
-      box-shadow: 0 20px 40px #00000070;
-      background: #d0d0d0;
-      color: #000;
-      text-decoration: underline;
+    .download-button:hover {
+      background-color: #00cc66;
+      transform: scale(1.05);
     }
 
-    .file-links a::before {
-      content: '';
-      position: absolute;
-      top: -12px;
-      left: -12px;
-      width: 100%;
-      height: 100%;
-      border-radius: 20px;
-      background: conic-gradient(from 0deg, #00ff00, #ff0000, #0000ff, #00ff00);
-      filter: blur(15px);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      z-index: -1;
-      animation: waveSpin 4s linear infinite;
-    }
-
-    .file-links a:hover::before {
-      opacity: 1;
+    /* کراس هیر کریپر */
+    #crosshair {
+      pointer-events: none;
+      position: fixed;
+      width: 40px;
+      height: 40px;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
     }
   </style>
 </head>
 <body>
-  <h1>SIR MARKO YT graphy</h1>
 
-  <div class="social-icons">
-    <a href="https://www.youtube.com/@SirMarkoyT" target="_blank" rel="noopener noreferrer">
-      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" />
+  <h1>به سایت من خوش آمدید!</h1>
+
+  <div class="icon-container">
+    <a href="https://youtube.com" target="_blank">
+      <img src="youtube.png" alt="YouTube" class="icon">
     </a>
-    <a href="https://www.instagram.com/sirmarkoyt" target="_blank" rel="noopener noreferrer">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+    <a href="https://instagram.com" target="_blank">
+      <img src="instagram.png" alt="Instagram" class="icon">
     </a>
   </div>
 
-  <div class="file-links">
-    <h2>فایل‌های قابل دانلود</h2>
-    <a href="files/sample1.pdf" download>دانلود فایل 1 (PDF)</a>
-    <a href="files/sample2.zip" download>دانلود فایل 2 (ZIP)</a>
-    <a href="files/sample3.mp4" download>دانلود فایل 3 (ویدیو)</a>
-  </div>
+  <!-- دکمه بخش دانلود -->
+  <a href="downloads.html" class="download-button">بخش دانلود</a>
 
-  <div class="footer">©Sir Marko yT - همه حقوق محفوظ است</div>
+  <!-- تصویر کریپر که جای موس میاد -->
+  <img src="creeper.png" id="crosshair">
+
+  <script>
+    const crosshair = document.getElementById("crosshair");
+
+    document.addEventListener("mousemove", e => {
+      crosshair.style.left = e.pageX + "px";
+      crosshair.style.top = e.pageY + "px";
+    });
+  </script>
+
 </body>
 </html>
