@@ -1,111 +1,138 @@
-<!DOCTYPE html>
-<html lang="fa">
+<!DOCTYPE html><html lang="fa">
 <head>
   <meta charset="UTF-8">
   <title>SIR MARKO YT graphy</title>
   <style>
     body {
       margin: 0;
-      height: 100vh;
       font-family: sans-serif;
       background: linear-gradient(270deg, #00ff00, #ff0000, #0000ff);
       background-size: 600% 600%;
       animation: bgAnimation 15s ease infinite;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }@keyframes bgAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-    @keyframes bgAnimation {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+h1 {
+  font-size: 3em;
+  color: white;
+  text-shadow:
+    0 0 20px #ffffff,
+    -10px 0 30px #00ffff,
+    10px 0 30px #ff00ff;
+  text-align: center;
+  margin-top: 60px;
+}
 
-    h1 {
-      font-size: 3em;
-      color: white;
-      text-shadow:
-        0 0 20px #ffffff,
-        -10px 0 30px #00ffff,
-        10px 0 30px #ff00ff;
-      margin-bottom: 40px;
-      margin-top: -50px;
-      position: relative;
-    }
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 60px 0;
+}
 
-    .social-icons {
-      display: flex;
-      gap: 40px;
-      margin-bottom: 60px;
-    }
+.social-icons a {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 10px 20px #00000050;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  perspective: 1000px;
+}
 
-    .social-icons a {
-      position: relative;
-      display: inline-block;
-      width: 80px;
-      height: 80px;
-      border-radius: 20px;
-      background: white;
-      box-shadow: 0 10px 20px #00000050;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      perspective: 1000px;
-      overflow: visible;
-    }
+.social-icons a:hover {
+  transform: rotateY(15deg) rotateX(10deg) scale(1.1);
+  box-shadow: 0 20px 40px #00000080;
+}
 
-    .social-icons a:hover {
-      transform: rotateY(15deg) rotateX(10deg) scale(1.1);
-      box-shadow: 0 20px 40px #00000080;
-    }
+.social-icons a::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  width: 110px;
+  height: 110px;
+  background: conic-gradient(from 0deg, #00ff00, #ff0000, #0000ff, #00ff00);
+  border-radius: 50%;
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+  animation: waveSpin 4s linear infinite;
+}
 
-    .social-icons a::before {
-      content: '';
-      position: absolute;
-      top: -15px;
-      left: -15px;
-      width: 110px;
-      height: 110px;
-      background: conic-gradient(from 0deg, #00ff00, #ff0000, #0000ff, #00ff00);
-      border-radius: 50%;
-      filter: blur(20px);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      z-index: -1;
-      animation: waveSpin 4s linear infinite;
-    }
+.social-icons a:hover::before {
+  opacity: 1;
+}
 
-    .social-icons a:hover::before {
-      opacity: 1;
-    }
+@keyframes waveSpin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 
-    @keyframes waveSpin {
-      0%   { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
+.social-icons img {
+  width: 50px;
+  height: 50px;
+}
 
-    .social-icons img {
-      width: 50px;
-      height: 50px;
-    }
+.triangle-scroll {
+  text-align: center;
+  margin-top: 20px;
+  animation: bounceDown 3s linear infinite;
+}
 
-    .footer {
-      color: white;
-      font-size: 1rem;
-      text-shadow: 1px 1px 3px #00000070;
-      position: absolute;
-      bottom: 20px;
-    }
+.triangle-scroll span {
+  display: block;
+  font-size: 2rem;
+  color: white;
+  opacity: 0;
+  animation: triangleLoop 6s infinite;
+}
+
+.triangle-scroll span:nth-child(1) { animation-delay: 0s; }
+.triangle-scroll span:nth-child(2) { animation-delay: 1s; }
+.triangle-scroll span:nth-child(3) { animation-delay: 2s; }
+
+@keyframes triangleLoop {
+  0%, 100% { opacity: 0; transform: translateY(-10px); }
+  30% { opacity: 1; transform: translateY(0); }
+  60% { opacity: 0; transform: translateY(10px); }
+}
+
+.about-section {
+  height: 100vh;
+  background: rgba(0,0,0,0.3);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  text-shadow: 0 0 10px #000;
+}
+
+.footer {
+  color: white;
+  font-size: 1rem;
+  text-shadow: 1px 1px 3px #00000070;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
   </style>
 </head>
 <body>
-  <h1>SIR MARKO YT graphy</h1>
-
-  <div class="social-icons">
+  <h1>SIR MARKO YT graphy</h1>  <div class="social-icons">
     <a href="https://www.youtube.com/@SirMarkoyT" target="_blank">
       <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
     </a>
@@ -115,8 +142,13 @@
     <a href="https://www.youtube.com/@sirmarkoOthergameyT" target="_blank">
       <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube Other">
     </a>
-  </div>
-
-  <div class="footer">©Sir Marko yT - همه حقوق محفوظ است</div>
+  </div>  <div class="triangle-scroll">
+    <span>▼</span>
+    <span>▼</span>
+    <span>▼</span>
+  </div>  <div class="about-section" id="about">
+    <h2>درباره من</h2>
+    <p>من SIR MARKO YT هستم، یک سازنده محتوا، گیمر، و کسی که عاشق طراحی و خلاقیته. اینجا می‌تونی لینک‌هام رو ببینی و باهام در ارتباط باشی.</p>
+  </div>  <div class="footer">©Sir Marko yT - همه حقوق محفوظ است</div>
 </body>
 </html>
